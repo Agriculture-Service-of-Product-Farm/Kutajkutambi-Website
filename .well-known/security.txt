@@ -1,0 +1,10 @@
+# Agriculture Service of Product Farm (ASPF) — Kutajkutambi Neural Network
+# Conforms to RFC 9116
+
+Contact: mailto:sbruicesingh@haclon.in
+Expires: 2027-12-31T23:59:59.000Z
+Preferred-Languages: en, hi
+Canonical: https://agriculture-service-of-product-farm.github.io/Kutajkutambi-Website/.well-known/security.txt
+Policy: https://github.com/Agriculture-Service-of-Product-Farm/Kutajkutambi-Website/blob/main/SECURITY.md
+
+# Please report vulnerabilities privately. Do not open public issues.
