@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kutajkutambi Neural Network — AI for Precision Agriculture | ASPF</title>
+<meta name="description" content="Agriculture Service of Product Farm (ASPF) · Kutajkutambi Neural Network — multi-agent AI for early crop disease detection, leaf analysis, and smart farming.">
+<style>
+:root {
+  --bg: #f7faf7;
+  --text: #1a2e1a;
+  --muted: #4a5e4a;
+  --accent: #2e7d32;
+  --accent-dark: #1b5e20;
+  --border: #d0e0d0;
+  --card: #ffffff;
+  --code-bg: #f0f4f0;
+}
+* { box-sizing: border-box; }
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+header {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 1rem; background: var(--accent); color: white; padding: 0.5rem; }
+.brand { font-weight: 600; color: var(--accent-dark); font-size: 0.95rem; }
+.brand span { color: var(--muted); font-weight: 400; }
+h1 { font-size: 2.2rem; margin: 0.5rem 0 0.75rem; line-height: 1.2; color: var(--accent-dark); }
+.hero { max-width: 960px; margin: 2rem auto; padding: 0 1.5rem; }
+.tagline { font-size: 1.25rem; color: var(--muted); margin-bottom: 1.5rem; }
+.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.metric { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; text-align: center; }
+.metric strong { display: block; font-size: 1.4rem; color: var(--accent); }
+section { max-width: 960px; margin: 2.5rem auto; padding: 0 1.5rem; }
+h2 { font-size: 1.6rem; color: var(--accent-dark); border-bottom: 2px solid var(--accent); padding-bottom: 0.35rem; margin-top: 2rem; }
+h3 { color: var(--accent); margin-top: 1.5rem; }
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; background: var(--card); }
+th, td { border: 1px solid var(--border); padding: 0.75rem; text-align: left; }
+th { background: #e8f5e9; }
+.card { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 1.25rem; margin: 1rem 0; }
+pre, code { background: var(--code-bg); border-radius: 4px; font-family: ui-monospace, "Cascadia Code", Consolas, monospace; }
+pre { padding: 1rem; overflow-x: auto; }
+code { padding: 0.15rem 0.35rem; font-size: 0.9em; }
+.note { font-size: 0.9rem; color: var(--muted); font-style: italic; }
+footer { background: var(--card); border-top: 1px solid var(--border); padding: 2rem 1.5rem; text-align: center; color: var(--muted); font-size: 0.9rem; margin-top: 3rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+.demo-box { background: #e8f5e9; border: 1px dashed var(--accent); border-radius: 8px; padding: 1.5rem; margin: 1rem 0; }
+.btn { background: var(--accent); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin: 0.25rem; }
+.btn:hover { background: var(--accent-dark); }
+@media (max-width: 600px) {
+  h1 { font-size: 1.6rem; }
+  .metrics { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header>
+  <div class="brand">
+    Agriculture Service of Product Farm (ASPF) · Kutajkutambi Neural Network
+  </div>
+</header>
+
+<main id="main">
+  <div class="hero">
+    <h1>Intelligent insights for every plant in the field.</h1>
+    <p class="tagline">Kutajkutambi turns field photos, sensor streams, and environmental data into precise, explainable diagnoses and actionable advice for smallholder farmers using a multi-agent neural system.</p>
+    <p>It is developed by <strong>Agriculture Service of Product Farm (ASPF)</strong> as part of its agriculture research and innovation work focused on Indian farms, especially Uttar Pradesh conditions.</p>
+
+    <div class="metrics">
+      <div class="metric"><strong>35</strong> specialized agents</div>
+      <div class="metric"><strong><200ms</strong> edge photo diagnosis</div>
+      <div class="metric"><strong>Hindi</strong> voice + WhatsApp ready</div>
+      <div class="metric"><strong>0</strong> external model telemetry</div>
+    </div>
+  </div>
+
+  <section>
+    <h2>Live research demonstration</h2>
+    <p class="note">The interactive elements need JavaScript. Everything else on this site works without it.</p>
+    <div class="demo-box">
+      <p><strong>Simulated field photo analysis</strong> (illustrative only — no private models or real farmer data are used here).</p>
+      <button class="btn" onclick="runDemo()">Analyze sample leaf</button>
+      <button class="btn" onclick="resetDemo()">Reset</button>
+      <div id="demo-output" style="margin-top:1rem; font-family:monospace; background:white; padding:1rem; border-radius:4px;">
+        Waiting for analysis…<br>
+        Confidence: —<br>
+        Primary diagnosis: —<br>
+        Severity: —
+      </div>
+    </div>
+    <p>This browser demo shows the output format only. Production Kutajkutambi runs optimized edge models (ONNX / TFLite) on phones or Jetson devices and fuses vision with optional soil sensors and weather.</p>
+  </section>
+
+  <section>
+    <h2>What it is</h2>
+    <p>Smallholder farmers in India face rapid disease outbreaks, nutrient stress, and limited access to timely agronomic advice. Field conditions include variable lighting, dew, mixed healthy/diseased leaves, and local crop varieties.</p>
+    <p>Kutajkutambi is the multi-agent AI layer that processes smartphone or drone images, fuses them with sensor and satellite data when available, and returns a clear diagnosis plus treatment plan in the farmer’s language.</p>
+    <div class="card">
+      <h3>Perceive</h3>
+      <p>Leaf segmentation and multi-class disease / pest / nutrient visual detection with Grad-CAM explainability.</p>
+      <h3>Fuse</h3>
+      <p>Combine image results with soil NPK, moisture, weather favorability, and NDVI trends.</p>
+      <h3>Advise</h3>
+      <p>Ranked cultural, biological, and chemical options with dosage, timing, safety, and expected yield impact — Hindi voice or WhatsApp ready.</p>
+    </div>
+    <p><strong>Not a black box.</strong> Every diagnosis includes a confidence score, visual evidence, and a one-tap path to a human ASPF agronomist.</p>
+  </section>
+
+  <section>
+    <h2>Capabilities</h2>
+    <table>
+      <thead>
+        <tr><th>Capability</th><th>What you get</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Leaf segmentation & masking</td><td>Clean leaf isolation from complex field backgrounds; improves downstream accuracy</td></tr>
+        <tr><td>Multi-crop disease classification</td><td>Rice, wheat, tomato, brinjal, mustard, sugarcane and others; hierarchical labels with top-3 alternatives</td></tr>
+        <tr><td>Severity & early stress</td><td>Percentage area affected, stage (incipient/moderate/severe), and pre-symptomatic stress detection</td></tr>
+        <tr><td>Pest & nutrient visual diagnosis</td><td>Insect density estimates and classic deficiency symptom differentiation</td></tr>
+        <tr><td>Soil & environmental fusion</td><td>NPK balance, irrigation scheduling, pH/salinity, weather favorability windows</td></tr>
+        <tr><td>Farmer delivery</td><td>Hindi / Hinglish voice notes, WhatsApp rich media, offline-first edge inference</td></tr>
+        <tr><td>Explainability</td><td>Grad-CAM heatmaps and plain-language “why this / what to do”</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Research platform principles</h2>
+    <table>
+      <thead>
+        <tr><th>Principle</th><th>Implementation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Mathematical & model clarity</td><td>Documented architectures (ConvNeXt, EfficientNetV2, U-Net / SAM variants, multimodal fusion)</td></tr>
+        <tr><td>Data integrity</td><td>Farm/season-based splits, synthetic data for rare diseases, strict leakage prevention</td></tr>
+        <tr><td>Explainability & trust</td><td>Mandatory saliency maps; confidence scores; human escalation path</td></tr>
+        <tr><td>Edge & privacy</td><td>On-device inference preferred; consent-tracked; India DPDP aligned; minimal retention</td></tr>
+        <tr><td>Continuous validation</td><td>Per-class metrics, agronomist ground-truth comparison, drift monitoring</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Engineering quality</h2>
+    <ul>
+      <li>Input validation and graceful handling of blurry or out-of-distribution images</li>
+      <li>Typed agent interfaces and auditable reasoning trails</li>
+      <li>Automated tests for edge cases (lighting, occlusion, mixed symptoms)</li>
+      <li>Model versioning, experiment tracking, and controlled promotion of champion models</li>
+      <li>No external telemetry from production inference packages</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Agricultural applications</h2>
+    <div class="card">
+      <h3>Early disease scouting</h3>
+      <p>Detect blast, rusts, blights, leaf curl and other common issues before they spread across the plot.</p>
+      <h3>Nutrient & water management</h3>
+      <p>Visual deficiency symptoms fused with sensor NPK and moisture for precise recommendations.</p>
+      <h3>Pest IPM support</h3>
+      <p>Identify beneficials versus pests and estimate density to guide spot treatment.</p>
+      <h3>Seasonal planning</h3>
+      <p>Growth-stage estimation and multi-season rotation / organic transition calendars.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Licensing and enquiries</h2>
+    <p>Kutajkutambi Neural Network is proprietary research software of Agriculture Service of Product Farm (ASPF). It is not open source. Use requires a written license agreement.</p>
+    <p>Research collaboration, pilot deployment, or licensing enquiries: <a href="mailto:sbruicesingh@haclon.in">sbruicesingh@haclon.in</a></p>
+    <p class="note">This public site contains only high-level information. Detailed algorithms, model weights, and internal specifications remain confidential.</p>
+  </section>
+
+  <section>
+    <h2>Security</h2>
+    <p>To report a vulnerability, email the address above. Do not open public issues. See also the security.txt file on associated research repositories when available.</p>
+  </section>
+</main>
+
+<footer>
+  <p>Agriculture Service of Product Farm (ASPF) · Azamgarh, Uttar Pradesh<br>
+  Research and innovation in precision agriculture and AI for smallholders.<br>
+  This site sets no cookies and loads no third-party resources.</p>
+</footer>
+
+<script>
+function runDemo() {
+  const el = document.getElementById('demo-output');
+  el.innerHTML = `Analyzing sample leaf image…<br>
+Confidence: 0.91<br>
+Primary diagnosis: Tomato early blight (Alternaria)<br>
+Severity: moderate (≈18% leaf area)<br>
+Recommendation: cultural removal of lower leaves + copper-based protectant if preferred; see full spray card in production system.<br>
+<span style="color:#2e7d32">Visual evidence: Grad-CAM highlights lesion margins (illustrative)</span>`;
+}
+function resetDemo() {
+  document.getElementById('demo-output').innerHTML = `Waiting for analysis…<br>
+Confidence: —<br>
+Primary diagnosis: —<br>
+Severity: —`;
+}
+</script>
+</body>
+</html>
